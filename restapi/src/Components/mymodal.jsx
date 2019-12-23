@@ -36,9 +36,9 @@ export default class Mymodal extends Component {
     const { name, adress, number } = this.state;
     axios
       .put(`http://localhost:3001/modify_contacts/${this.props.cardID}`, {
-        name: name,
-        adress: adress,
-        number: number
+        name: name ? name : undefined,
+        adress: adress ? adress : undefined,
+        number: number ? number : undefined
       })
       .then(res => {
         console.log(res);

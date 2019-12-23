@@ -58,6 +58,7 @@ mongodb.MongoClient.connect(
 
     app.put("/modify_contacts/:id", (req, res) => {
       let id = mongodb.ObjectID(req.params.id);
+      console.log(req.body)
       db.collection("contacts").findOneAndUpdate(
         { _id: id },
         { $set: { ...req.body } },
